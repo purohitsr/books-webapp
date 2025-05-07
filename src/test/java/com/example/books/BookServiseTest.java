@@ -18,7 +18,7 @@ public class BookServiseTest {
 		List<Book> books = service.getBooks();
 		
 		Assert.assertFalse(books.isEmpty());
-	    Assert.assertEquals("The Great Gats", books.get(0).getTitle());
+	    Assert.assertEquals("The Great Gat", books.get(0).getTitle());
 	}
 
 }
