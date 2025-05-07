@@ -15,11 +15,11 @@ jobs:
        with : 
          java-version : '17'
          distribution : 'temurin'
-     -name  : build and run tests
+     - name  : build and run tests
        run  : mvn clean verify     
      - name: Deploy to Render
        if: success()  # Only if tests pass
        uses: render-examples/deploy-action@v1
        with:
         serviceId: ${{ secrets.RENDER_SERVICE_ID }}
-        apiKey: ${{ secrets.RENDER_API_KEY }}
+        apiKey:    ${{ secrets.RENDER_API_KEY }}
