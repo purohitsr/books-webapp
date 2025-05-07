@@ -10,7 +10,7 @@ public class BookService {
     public List<Book> getBooks() {
         List<Book> books = new ArrayList<>();
         books.add(new Book(1, "The Great Gatsby", "Scott Fitzgerald"));
-        books.add(new Book(2, "Nineteen Eighty-Four", "George Orwell"));
+        books.add(new Book(2, "Nineteen Eighty-Four", "Saurav Purohit"));
         return books;
     }
 }
