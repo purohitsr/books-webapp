@@ -23,7 +23,7 @@ jobs:
         run: mvn clean test
 
       - name: Deploy to Render
-        if: ${{ success() }}
+        if: steps.test_step.outcome == 'success'
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
           RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
