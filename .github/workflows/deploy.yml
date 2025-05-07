@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  test-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,11 +20,15 @@ jobs:
           distribution: 'temurin'
 
       - name: Build and test with Maven
-        id: test_step 
-        run: mvn clean test
+        run: mvn clean test  # No `|| true`, ensure test failure causes job failure
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ needs.build.result == 'success' }}  # ✅ Only deploy if build job was successful
+
+    steps:
       - name: Deploy to Render
-        if: steps.test_step.outcome == 'success'
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
           RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
