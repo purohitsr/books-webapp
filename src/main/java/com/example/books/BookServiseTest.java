@@ -13,8 +13,8 @@ public class BookServiseTest {
 		BookService service = new BookService();
 		List<Book> books = service.getBooks();
 		
-		  Assert.assertFalse(books.isEmpty());
-		  Assert.assertEquals("The Great Gatsby", books.get(0).getTitle());
+		Assert.assertFalse(books.isEmpty());
+	    Assert.assertEquals("The Great Gatsby", books.get(0).getTitle());
 	}
 
 }
